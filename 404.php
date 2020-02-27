@@ -1,44 +1,25 @@
 <?php
-
+/**
+ * 响应式wordpress主题
+ *
+ * @package : rebirth
+ * @Author: Yqchilde
+ * @Version: 1.0.1
+ * @link  https://www.yqqy.top
+ */
+get_header();
 ?>
-<!doctype html>
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if (gte IE 9)| IEMobile |!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>404 — Page not found</title>
 
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-
-    <link rel="shortcut icon" href="/favicon.png">
-    <meta http-equiv="cleartype" content="on">
-
-    <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/inc/css/ghost.min.css"/>
-
-</head>
-<body>
-<main role="main" id="main">
-    <div class="gh-app">
-        <div class="gh-viewport">
-            <div class="gh-view">
-                <section class="error-content error-404 js-error-container">
-                    <section class="error-details">
-                        <section class="error-message">
-                            <h1 class="error-code">404</h1>
-                            <h2 class="error-description">Page not found</h2>
-                            <a class="error-link" href="<?php echo home_url() ?>">Go to the front page →</a>
-                        </section>
-                    </section>
-                </section>
-
-            </div>
+<main class="main-content template-error-404">
+    <div class="container-sm">
+        <div class="row">
+            <section class="d-flex flex-column justify-content-center align-items-center w-100 error-message">
+                <h1 class="error-code">Error 404</h1>
+                <p class="error-description">Page not found</p>
+                <a class="error-link" href="https://iiong.com/">返回首页</a>
+            </section>
         </div>
     </div>
 </main>
-</body>
-</html>
+<?php get_footer(); ?>
