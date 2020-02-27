@@ -336,7 +336,7 @@ a:hover {
 
 .main-hero {
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
     height: 75vh
 }
 
@@ -407,7 +407,7 @@ a:hover {
 .main-hero-waves-area {
     width: 100%;
     position: absolute;
-    bottom: 0;
+    bottom: -5px;
     left: 0;
     z-index: 0
 }
@@ -3748,71 +3748,42 @@ a:hover {
      background: linear-gradient(45deg,#000,#263238)
  }
 
-.pjax-loading-wrapper {
-    display: none
+.template-error-404 .error-message {
+    height: 75vh
 }
 
-.pjax-loading-wrapper .pjax-loading {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #f2f2f2;
-    z-index: 1080
+.template-error-404 .error-message .error-code {
+    font-size: 50px;
+    display: inline-block;
+    padding-right: 12px;
+    -webkit-animation: type .5s infinite alternate;
+    animation: type .5s infinite alternate
 }
 
-.pjax-loading-wrapper .pjax-loading .loading {
-    width: 100px;
-    height: 100px
+.template-error-404 .error-message .error-link {
+    color: #1abc9c
 }
 
-.pjax-loading-wrapper .pjax-loading .loading__ring {
-    position: absolute;
-    width: 100px;
-    height: 100px
-}
+@-webkit-keyframes type {
+    0% {
+        -webkit-box-shadow: inset -3px 0 0;
+        box-shadow: inset -3px 0 0
+    }
 
-.pjax-loading-wrapper .pjax-loading .loading__ring:first-child {
-    -webkit-transform: skew(30deg,20deg);
-    transform: skew(30deg,20deg)
-}
-
-.pjax-loading-wrapper .pjax-loading .loading__ring:last-child {
-    -webkit-transform: skew(-30deg,-20deg) scaleX(-1);
-    transform: skew(-30deg,-20deg) scaleX(-1)
-}
-
-.pjax-loading-wrapper .pjax-loading .loading__ring:last-child svg {
-    -webkit-animation-delay: -.5s;
-    animation-delay: -.5s
-}
-
-.pjax-loading-wrapper .pjax-loading .loading__ring svg {
-    -webkit-animation: rotate 1s linear infinite;
-    animation: rotate 1s linear infinite;
-    fill: rgba(0,0,0,.2)
-}
-
-@-webkit-keyframes rotate {
     to {
-        -webkit-transform: rotate(1turn);
-        transform: rotate(1turn)
+        -webkit-box-shadow: inset -3px 0 0 transparent;
+        box-shadow: inset -3px 0 0 transparent
     }
 }
 
-@keyframes rotate {
+@keyframes type {
+    0% {
+        -webkit-box-shadow: inset -3px 0 0;
+        box-shadow: inset -3px 0 0
+    }
+
     to {
-        -webkit-transform: rotate(1turn);
-        transform: rotate(1turn)
+        -webkit-box-shadow: inset -3px 0 0 transparent;
+        box-shadow: inset -3px 0 0 transparent
     }
 }
-
-@media (prefers-color-scheme:dark) {
-    .pjax-loading-wrapper .pjax-loading {
-        background: #212a2e
-    }
-}[data-theme=dark] .pjax-loading-wrapper .pjax-loading {
-     background: #212a2e
- }
