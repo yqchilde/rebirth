@@ -10,6 +10,7 @@
 
 global $paged, $wp_query;
 $range = 2;
+$max_page = 0;
 if (!$max_page) {
     $max_page = $wp_query->max_num_pages;
 }

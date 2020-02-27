@@ -241,6 +241,22 @@ function optionsframework_options() {
 		'type' => 'text'
 	);
 
+	// 支付宝捐赠二维码
+	$options[] = array(
+		'name' => '支付宝捐赠二维码',
+		'desc' => '写下一段简洁的文字，展示在你的作者页',
+		'id'   => 'donate_alipay',
+		'type' => 'upload'
+	);
+
+	// 微信捐赠二维码
+	$options[] = array(
+		'name' => '微信捐赠二维码',
+		'desc' => '写下一段简洁的文字，展示在你的作者页',
+		'id'   => 'donate_wxpay',
+		'type' => 'upload'
+	);
+
 	// 社交网络(不写则不显示)
 	$options[] = array(
 		'name' => '社交网络',
@@ -296,7 +312,7 @@ function optionsframework_options() {
 	// 关于
 	$options[] = array(
 		'name' => '关于',
-		'desc' => sprintf( 'Theme Rebirth v %s  |  <a href="#"> 主题说明 </a>', Rebirth_Version ),
+		'desc' => sprintf( 'Theme Rebirth v %s  |  <a href="https://github.com/yqchilde/rebirth"> 主题说明 </a>', Rebirth_Version ),
 		'id'   => 'theme_intro',
 		'std'  => '',
 		'type' => 'typography '
@@ -305,13 +321,13 @@ function optionsframework_options() {
 	// 检查更新
 	$options[] = array(
 		'name'    => '检查更新',
-		'desc'    => '<a href="https://github.com/mashirozx/Sakura/releases/latest">Download the latest version</a>',
+		'desc'    => '<a href="https://github.com/yqchilde/rebirth/releases/latest">Download the latest version</a>',
 		'id'      => "theme_version",
 		'std'     => "tag",
 		'type'    => "images",
 		'options' => array(
-			'tag'  => 'https://img.shields.io/github/release/mashirozx/Sakura.svg?style=flat-square',
-			'tag2' => 'https://img.shields.io/github/commits-since/mashirozx/Sakura/v' . Rebirth_Version . '/dev.svg?style=flat-square',
+			'tag'  => 'https://img.shields.io/github/v/release/yqchilde/rebirth.svg?style=flat-square',
+			'tag2' => 'https://img.shields.io/github/commits-since/yqchilde/rebirth/' . Rebirth_Version . '?logo=dev&style=flat-square',
 		),
 	);
 

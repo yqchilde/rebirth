@@ -21,14 +21,20 @@ $blog_avatar = get_avatar( get_the_author_meta( 'user_email' ), '', '', '文章�
 $blog_author_others = esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) );
 // 查看更多文章链接
 $the_more_article_link = esc_url( get_category_link( get_the_category()[0]->term_id ) );
-// 上一篇文章分类
-$prev_blog_cat = get_category( get_the_category( get_previous_post()->ID )[0]->term_id )->cat_name;
-// 上一篇文章链接
-$prev_blog_link = get_permalink( get_previous_post()->ID );
-// 下一篇文章分类
-$next_blog_cat = get_category( get_the_category( get_next_post()->ID )[0]->term_id )->cat_name;
-// 下一篇文章链接
-$next_blog_link = get_permalink( get_next_post()->ID );
+// 判断上一篇文章有没有
+if (get_previous_post() != null) {
+	// 上一篇文章分类
+	$prev_blog_cat = get_category( get_the_category( get_previous_post()->ID )[0]->term_id )->cat_name;
+    // 上一篇文章链接
+	$prev_blog_link = get_permalink( get_previous_post()->ID );
+}
+// 判断下一篇文章有没有
+if (get_next_post() != null) {
+	// 下一篇文章分类
+	$next_blog_cat = get_category( get_the_category( get_next_post()->ID )[0]->term_id )->cat_name;
+    // 下一篇文章链接
+	$next_blog_link = get_permalink( get_next_post()->ID );
+}
 
 ?>
 <main class="main-content">
@@ -73,14 +79,14 @@ $next_blog_link = get_permalink( get_next_post()->ID );
                     <div class="row">
                         <div class="col-sm">
                             <figure class="figure">
-                                <img src="https://img.alicdn.com/imgextra/i4/2038135983/O1CN011u4G8M87EOv3N6Q_!!2038135983.jpg"
+                                <img src="<?php echo rebirth_option('donate_alipay') ?>"
                                      alt="支付宝捐赠" title="请使用支付宝扫一扫进行捐赠">
                                 <figcaption class="figure-caption">请使用支付宝扫一扫进行捐赠</figcaption>
                             </figure>
                         </div>
                         <div class="col-sm">
                             <figure class="figure">
-                                <img src="https://img.alicdn.com/imgextra/i1/2038135983/O1CN012t8d2E1u4G8KbRFYp_!!2038135983.png"
+                                <img src="<?php echo rebirth_option('donate_wxpay') ?>"
                                      alt="微信捐赠" title="请使用微信扫一扫进行赞赏">
                                 <figcaption class="figure-caption">请使用微信扫一扫进行赞赏</figcaption>
                             </figure>
@@ -116,31 +122,42 @@ $next_blog_link = get_permalink( get_next_post()->ID );
                         </div>
                         <div class="col-12 col-sm-12 col-md-auto col-lg-auto col-xl-auto">
                             <div class="author-card-social">
-                                <a class="site-tooltip author-card-social-links" target="_blank"
-                                   rel="noreferrer noopener nofollow" href="#" data-toggle="tooltip"
-                                   data-placement="top" title="QQ">
-                                    <i class="fab fa-qq"></i>
-                                </a>
-                                <a class="site-popover author-card-social-links"
-                                   href="#"
-                                   data-container=".site-wrapper"
-                                   data-toggle="popover"
-                                   data-placement="top"
-                                   data-trigger="hover"
-                                   data-content="<div class='hero-social-wechat'><img src='https://img.alicdn.com/imgextra/i4/2038135983/O1CN011u4G8M87EOv3N6Q_!!2038135983.jpg' alt='微信二维码'/></div>"
-                                >
-                                    <i class="fab fa-weixin"></i>
-                                </a>
-                                <a class="site-tooltip author-card-social-links" target="_blank"
-                                   rel="noreferrer noopener nofollow" href="#" data-toggle="tooltip"
-                                   data-placement="top" title="WeiBo">
-                                    <i class="fab fa-weibo"></i>
-                                </a>
-                                <a class="site-tooltip author-card-social-links" target="_blank"
-                                   rel="noreferrer noopener nofollow" href="#" data-toggle="tooltip"
-                                   data-placement="top" title="Github">
-                                    <i class="fab fa-github"></i>
-                                </a>
+	                            <?php if ( rebirth_option( 'author_qq' ) ) : ?>
+                                    <a class="site-tooltip author-card-social-links" target="_blank"
+                                       rel="noreferrer noopener nofollow" href="<?php echo rebirth_option( 'author_qq' ) ?>" data-toggle="tooltip"
+                                       data-placement="top" title="QQ">
+                                        <i class="fab fa-qq"></i>
+                                    </a>
+	                            <?php endif; ?>
+
+	                            <?php if ( rebirth_option( 'author_wechat' ) ) : ?>
+                                    <a class="site-popover author-card-social-links"
+                                       href="#"
+                                       data-container=".site-wrapper"
+                                       data-toggle="popover"
+                                       data-placement="top"
+                                       data-trigger="hover"
+                                       data-content="<div class='hero-social-wechat'><img src='<?php echo rebirth_option( 'author_wechat' ) ?>' alt='微信二维码'/></div>"
+                                    >
+                                        <i class="fab fa-weixin"></i>
+                                    </a>
+	                            <?php endif; ?>
+
+	                            <?php if ( rebirth_option( 'author_sina' ) ) : ?>
+                                    <a class="site-tooltip author-card-social-links" target="_blank"
+                                       rel="noreferrer noopener nofollow" href="<?php echo rebirth_option( 'author_sina' ) ?>" data-toggle="tooltip"
+                                       data-placement="top" title="WeiBo">
+                                        <i class="fab fa-weibo"></i>
+                                    </a>
+	                            <?php endif; ?>
+
+	                            <?php if ( rebirth_option( 'author_github' ) ) : ?>
+                                    <a class="site-tooltip author-card-social-links" target="_blank"
+                                       rel="noreferrer noopener nofollow" href="<?php echo rebirth_option( 'author_github' ) ?>" data-toggle="tooltip"
+                                       data-placement="top" title="Github">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+	                            <?php endif; ?>
                             </div>
                         </div>
                     </div>
