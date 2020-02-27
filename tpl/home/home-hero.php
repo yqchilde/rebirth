@@ -15,7 +15,7 @@
 		<?php $termId = get_category( get_query_var( 'cat' ) )->term_id; ?>
 		<?php $categoryImgs = getCategoryBgImg();
 		foreach ( $categoryImgs as $k => $v ) : ?>
-			<?php if ( substr( $k, - 1, 1 ) == $termId ) : ?>
+			<?php if ( explode("_", $k)[1] == $termId ) : ?>
                 <div class="main-hero-bg"
                      style="background-image: url('<?php echo $v ?>')"></div>
 			<?php endif; ?>

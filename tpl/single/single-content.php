@@ -157,7 +157,7 @@ $next_blog_link = get_permalink( get_next_post()->ID );
 					<?php if ( is_single() ) : ?>
 						<?php $termId = get_the_category()[0]->term_id; ?>
 						<?php $categoryImgs = getCategoryBgImg(); foreach ( $categoryImgs as $k => $v ) : ?>
-                        <?php if ( substr( $k, - 1, 1 ) == $termId ) : ?>
+                        <?php if ( explode("_", $k)[1] == $termId ) : ?>
                             <article class="read-next-card"
                              style="background-image: url('<?php echo $v ?>')">
                         <?php endif; ?>
