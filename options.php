@@ -123,6 +123,15 @@ function optionsframework_options() {
 		'type' => 'text'
 	);
 
+	// dns预加载图床
+	$options[] = array(
+		'name' => 'DNS预加载图床',
+		'desc' => '输入图床链接，方便使用dns预加载',
+		'id'   => 'site_dnsprefetch',
+		'std'  => '',
+		'type' => 'text'
+	);
+
 	// 默认没有封面图要展示默认封面图的路径
 	$options[] = array(
 		'name' => '默认封面图路径',
