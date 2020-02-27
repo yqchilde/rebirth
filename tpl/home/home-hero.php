@@ -105,7 +105,7 @@
             <!--判断是否是首页-->
 		<?php elseif ( is_home() ) : ?>
             <div class="text-center main-hero-content-title"><?php echo rebirth_option( 'author_name' ) ?></div>
-            <div class="text-center main-hero-content-description home-sentence">只争朝夕，不负韶华</div>
+            <div class="text-center main-hero-content-description home-sentence"></div>
 		<?php endif; ?>
     </div>
     <div class="main-hero-waves-area">
