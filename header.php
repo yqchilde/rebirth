@@ -68,6 +68,16 @@
 	<?php } ?>
     <link rel="shortcut icon" href="<?php echo rebirth_option( 'favicon_link' ) ?>"/>
     <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="dns-prefetch" href="<?php echo home_url(); ?>/">
+    <link rel="dns-prefetch" href="<?php echo rebirth_option('site_dnsprefetch') ?>">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net/">
+    <link rel="dns-prefetch" href="https://hm.baidu.com/">
+    <link rel="dns-prefetch" href="https://zz.bdstatic.com/">
+    <link rel="dns-prefetch" href="https://sp0.baidu.com/">
+    <link rel="dns-prefetch" href="https://api.share.baidu.com/">
+    <link rel="dns-prefetch" href="https://push.zhanzhang.baidu.com/">
+    <link rel="dns-prefetch" href="https://gravatar.loli.net/">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com/">
 	<?php wp_head(); ?>
 
     <link type="text/css" rel="stylesheet"
@@ -82,12 +92,14 @@
 <div class="d-flex site-wrapper">
     <div class="d-block d-lg-none d-xl-none sidebar-wrapper">
 
-        <include><?php get_sidebar(); ?></include>
-
+        <?php if (is_404() == false) : ?>
+            <include><?php get_sidebar(); ?></include>
+        <?php endif; ?>
     </div>
     <div class="main-wrapper">
 
-        <header class="fixed-top shadow-sm main-header scroll-reveal-header">
+        <?php if (is_404() == false) : ?>
+            <header class="fixed-top shadow-sm main-header scroll-reveal-header">
             <nav class="navbar navbar-expand-md header-navbar">
                 <div class="container">
                     <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -129,3 +141,4 @@
                 </div>
             </nav>
         </header>
+        <?php endif; ?>
