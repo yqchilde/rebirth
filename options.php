@@ -328,7 +328,7 @@ function optionsframework_options() {
 		'options' => array(
 			'tag'  => 'https://img.shields.io/github/v/release/yqchilde/rebirth.svg?style=flat-square',
 			'tag2' => 'https://img.shields.io/github/commits-since/yqchilde/rebirth/' . Rebirth_Version . '?logo=dev&style=flat-square',
-		),
+		), 
 	);
 
 
