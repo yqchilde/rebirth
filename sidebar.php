@@ -11,6 +11,7 @@
         </div>
     </div>
     <div class="list-group list-group-flush">
+        <?php $args = array("post_type" => "nav_menu_item") ?>
 		<?php $menus = wp_get_nav_menu_items( get_nav_menu_locations()['primary'], $args );
 		foreach ( $menus as $v ) : ?>
 			<?php if ( is_home() ) : ?>
