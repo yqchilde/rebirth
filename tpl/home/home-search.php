@@ -5,10 +5,10 @@
  * @package : rebirth
  * @Author: Yqchilde
  * @Version: 1.0.1
- * @link  https://www.yqqy.top
+ * @link  https://yqqy.top
  */
 ?>
-<div class="search-wrapper" style="width: 422px; max-width: 100%">
+<div class="search-wrapper">
     <div class="container-sm">
         <button type="button" class="close search-close click-search-close" aria-label="Close">
             <span aria-hidden="true">&times;</span>

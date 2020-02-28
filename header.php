@@ -5,7 +5,7 @@
  * @package : rebirth
  * @Author: Yqchilde
  * @Version: 1.0.1
- * @link  https://www.yqqy.top
+ * @link  https://yqqy.top
  */
 ?>
 <?php header( 'X-Frame-Options: SAMEORIGIN' ); ?>

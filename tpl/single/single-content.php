@@ -5,7 +5,7 @@
  * @package : rebirth
  * @Author: Yqchilde
  * @Version: 1.0.1
- * @link  https://www.yqqy.top
+ * @link  https://yqqy.top
  */
 // 文章内容
 $blog_content = get_the_content();

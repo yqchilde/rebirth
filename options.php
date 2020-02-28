@@ -83,7 +83,7 @@ function optionsframework_options() {
 	$options[] = array(
 		'name' => 'logo',
 		'desc' => '最佳尺寸30px*30px, 建议使用svg。
-					<a href="https://www.yqqy.top/tips/848">为什么推荐使用svg图片</a>',
+					<a href="https://yqqy.top/tips/848">为什么推荐使用svg图片</a>',
 		'id'   => 'site_logo',
 		'type' => 'text'
 	);
