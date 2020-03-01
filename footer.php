@@ -15,7 +15,7 @@
             <p>Powered by <a href="https://wordpress.org/" rel="noopener nofollow" target="_blank">WordPress</a>.
                 Copyright
                 &copy; <?php echo date( 'Y', time() ) ?>. Crafted with
-                <a href="https://github.com/JaxsonWang/rebirth" target="_blank" rel="noopener nofollow">Rebirth</a>.
+                <a href="https://github.com/yqchilde/rebirth" target="_blank" rel="noopener nofollow">Rebirth</a>.
             </p>
         </div>
         <div class="d-none d-md-block main-footer-meta"><?php echo rebirth_option( 'site_bottom_right_msg' ) ?></div>
