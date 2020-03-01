@@ -45,18 +45,10 @@
 <?php get_template_part( 'tpl/home/home', 'totop' ); ?>
 
 <?php get_template_part( 'tpl/home/home', 'toast' ); ?>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
-<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/inc/js/trick.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri() ?>/inc/js/rebirth.js?v=<?php echo time()?>"></script>
+</div>
 
 <?php if ( rebirth_option( 'site_baidutj_script' ) ) : ?>
     <div class="site-statistics">
-
         <script type="text/javascript"><?php echo rebirth_option( 'site_baidutj_script' ) ?></script>
     </div>
 <?php endif; ?>

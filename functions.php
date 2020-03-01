@@ -44,8 +44,12 @@ if ( ! function_exists( 'rebirth_setup' ) ):
 		// 后台添加链接功能
 		add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 
-		// 移除Javascript的调用
-		remove_action( 'wp_head', 'wp_enqueue_scripts', 1 );
+		// 移除wp-block-library-css
+		add_action( 'wp_enqueue_scripts', 'remove_block_library_css', 100 );
+		function remove_block_library_css() {
+			wp_dequeue_style( 'wp-block-library' );
+		}
+
 		// 移除feed
 		remove_action( 'wp_head', 'feed_links', 2 );
 		remove_action( 'wp_head', 'feed_links_extra', 3 );
@@ -74,8 +78,6 @@ if ( ! function_exists( 'rebirth_setup' ) ):
 		// 检查并发布将来的帖子
 		remove_action( 'publish_future_post', 'check_and_publish_future_post', 10 );
 		remove_action( 'wp_footer', 'wp_print_footer_scripts' );
-		// alternate
-		remove_action( 'wp_head', '' );
 
 		function my_function_admin_bar() {
 			return false;
@@ -127,11 +129,36 @@ if ( ! function_exists( 'rebirth_setup' ) ):
 				'current-menu-parent'
 			) ) : '';
 		}
+
 	}
 
 endif;
 
 add_action( 'after_setup_theme', 'rebirth_setup' );
+
+// 引入脚本和样式
+function rebirth_scripts() {
+
+	wp_deregister_script( 'jquery' );
+	wp_register_script( 'jquery', 'https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js', array(), null, true );
+	wp_register_script( 'jquery-pjax', 'https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js', array('jquery'), null, true );
+	wp_register_script( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js', array('jquery'), null, true );
+	wp_register_script( 'scrollreveal', 'https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js', array(), null, true );
+	wp_register_script( 'valine', 'https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js', array(), null, true );
+	wp_register_script( 'trick', get_template_directory_uri() . '/inc/js/trick.js', array(), time(), true );
+	wp_register_script( 'rebirth', get_template_directory_uri() . '/inc/js/rebirth.js', array(), time(), true );
+
+	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'jquery-pjax' );
+	wp_enqueue_script( 'bootstrap' );
+	wp_enqueue_script( 'scrollreveal' );
+	wp_enqueue_script( 'valine' );
+	wp_enqueue_script( 'trick' );
+	wp_enqueue_script( 'rebirth' );
+
+}
+
+add_action( 'wp_enqueue_scripts', 'rebirth_scripts' );
 
 // 删除自带小工具
 function unregister_default_widgets() {
@@ -254,6 +281,3 @@ add_filter( 'update_footer', 'my_update_footer', 50 );
 
 // 调用Utils库做一些自定义的活
 require get_template_directory() . '/inc/Utils.php';
-
-
-
