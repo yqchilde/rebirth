@@ -4,7 +4,7 @@
  *
  * @package : rebirth
  * @Author: Yqchilde
- * @Version: 1.0.1
+ * @Version: 1.0.2
  * @link  https://yqqy.top
  */
 get_header();

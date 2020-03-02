@@ -4,11 +4,12 @@
  *
  * @package : rebirth
  * @Author: Yqchilde
- * @Version: 1.0.1
+ * @Version: 1.0.2
  * @link  https://yqqy.top
  */
 // 文章内容
-$blog_content = get_the_content();
+$blog_content = autoLinkNoFollow(get_the_content());
+
 // 文章作者
 $blog_author = esc_attr( get_the_author() );
 // 文章链接
