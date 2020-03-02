@@ -44,7 +44,10 @@
 
 <?php get_template_part( 'tpl/home/home', 'totop' ); ?>
 
+</div>
+
 <?php get_template_part( 'tpl/home/home', 'toast' ); ?>
+
 </div>
 
 <?php if ( rebirth_option( 'site_baidutj_script' ) ) : ?>
