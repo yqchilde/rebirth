@@ -4,17 +4,17 @@
  *
  * @package : rebirth
  * @Author: Yqchilde
- * @Version: 1.0.1
+ * @Version: 1.0.2
  * @link  https://yqqy.top
  */
 
 // 获取文章默认特色图片
 function getThumbnail() {
-	preg_match("/^https?:\/\/(([a-zA-Z0-9_-])+(\.)?)*(:\d+)?(\/[#]?((\.)?(\?)?=?&?[a-zA-Z0-9_%-](\?)?)*)*$/", rebirth_option('default_img'), $match);
-	if ($match) {
+	preg_match( "/^https?:\/\/(([a-zA-Z0-9_-])+(\.)?)*(:\d+)?(\/[#]?((\.)?(\?)?=?&?[a-zA-Z0-9_%-](\?)?)*)*$/", rebirth_option( 'default_img' ), $match );
+	if ( $match ) {
 		return $match[0];
 	} else {
-		return "/wp-content/themes/rebirth" . rebirth_option('default_img');
+		return "/wp-content/themes/rebirth" . rebirth_option( 'default_img' );
 	}
 }
 
@@ -269,6 +269,35 @@ function getCategoryBgImg() {
 	return json_decode( rebirth_option( 'site_category_img' ) );
 }
 
-//todo 出站链接自动添加nofollow和在新窗口打开
+// seo优化(文章内容新窗口打开+nofollow)
+function autoLinkNoFollow($content) {
+	$regexp = "<a\s[^>]*href=(\"??)([^\" >]*?)\\1[^>]*>";
+	if(preg_match_all("/$regexp/siU", $content, $matches, PREG_SET_ORDER)) {
+		if( !empty($matches) ) {
+			$srcUrl = get_option('siteurl');
+			for ($i=0; $i < count($matches); $i++){
+				$tag = $matches[$i][0];
+				$tag2 = $matches[$i][0];
+				$url = $matches[$i][0];
+				$noFollow = '';
+				$pattern = '/target\s*=\s*"\s*_blank\s*"/';
+				preg_match($pattern, $tag2, $match, PREG_OFFSET_CAPTURE);
+				if( count($match) < 1 )
+					$noFollow .= ' target="_blank" ';
+				$pattern = '/rel\s*=\s*"\s*[n|d]ofollow\s*"/';
+				preg_match($pattern, $tag2, $match, PREG_OFFSET_CAPTURE);
+				if( count($match) < 1 )
+					$noFollow .= ' rel="nofollow" ';
+				$pos = strpos($url,$srcUrl);
+				if ($pos === false) {
+					$tag = rtrim ($tag,'>');
+					$tag .= $noFollow.'>';
+					$content = str_replace($tag2,$tag,$content);
+				}
+			}
+		}
+	}
 
-
+	$content = str_replace(']]>', ']]>', $content);
+	return $content;
+}
