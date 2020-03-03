@@ -126,7 +126,8 @@ function optionsframework_options() {
 	// dns预加载图床
 	$options[] = array(
 		'name' => 'DNS预加载图床',
-		'desc' => '输入图床链接，方便使用dns预加载',
+		'desc' => '输入图床链接，
+		不需要输入http(s)，直接//domain',
 		'id'   => 'site_dnsprefetch',
 		'std'  => '',
 		'type' => 'text'
