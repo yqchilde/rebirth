@@ -162,7 +162,7 @@ if (get_next_post() != null) {
                             </div>
                         </div>
                     </div>
-                    <p>永远年轻，永远热泪盈眶！</p>
+                    <p><?php echo rebirth_option('author_flag') ?></p>
                 </section>
             </section>
             <div class="post-footer-right">
