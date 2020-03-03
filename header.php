@@ -83,7 +83,7 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.0/css/all.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@iconfu/svg-inject@1.2.3/dist/svg-inject.min.js"></script>
-    <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>?v=<?php echo time() ?>" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>?v=<?php echo Rebirth_Version ?>" type="text/css" media="screen"/>
 </head>
 <body class="rebirth-body">
 <div class="d-flex site-wrapper">
