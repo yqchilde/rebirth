@@ -141,7 +141,6 @@ function rebirth_scripts() {
 
 	wp_deregister_script( 'jquery' );
 	wp_register_script( 'jquery', 'https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js', array(), null, true );
-	wp_register_script( 'jquery-pjax', 'https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js', array( 'jquery' ), null, true );
 	wp_register_script( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), null, true );
 	wp_register_script( 'scrollreveal', 'https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js', array(), null, true );
 	wp_register_script( 'valine', 'https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js', array(), null, true );
@@ -149,7 +148,6 @@ function rebirth_scripts() {
 	wp_register_script( 'rebirth', get_template_directory_uri() . '/inc/js/rebirth.js', array(), Rebirth_Version, true );
 
 	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'jquery-pjax' );
 	wp_enqueue_script( 'bootstrap' );
 	wp_enqueue_script( 'scrollreveal' );
 	wp_enqueue_script( 'valine' );
