@@ -55,7 +55,7 @@ get_header();
                                  target="_blank">https://github.com/yqchilde</a></p>
                     <h3 id="--1">有趣的工具</h3>
                     <p>短链生成(t.cn)：<a href="https://t.cn/A6hvLzaD" target="_blank">https://t.cn/A6hvLzaD</a></p>
-                    <p>科学上网✈：<a href="https://t.cn/A6h7pEyH" target="_blank">https://t.cn/A6h7pEyH</a></p>
+                    <p>科学上✈：<a href="https://t.cn/A6h7pEy" target="_blank">https://t.cn/A6h7pEyH</a></p>
                     <h3 id="--2">喜欢的话</h3>
                     <p>《The Dharm Bums》 — “O ever youthful, O ever weeping.”</p>
                     <p>《达摩流浪者》 — “永远年轻，永远热泪盈眶。”</p>
