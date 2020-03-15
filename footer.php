@@ -23,7 +23,7 @@
     <div class="container d-flex flex-wrap-reverse justify-content-md-between justify-content-center text-center main-footer-audit">
         <p>
 			<?php if ( rebirth_option( 'site_icp' ) ) : ?>
-                <a href="http://www.miitbeian.gov.cn" target="_blank"
+                <a href="http://www.beian.miit.gov.cn" target="_blank"
                    rel="nofollow noopener"><?php echo rebirth_option( 'site_icp' ) ?>&nbsp;</a>
 			<?php endif; ?>
 
