@@ -150,7 +150,7 @@ function optionsframework_options() {
 					{
 						"category_$": "#",
 						"category_$": "#",
-						依次添加
+						依次添加...
 					}',
 		'id'   => 'site_category_img',
 		'std'  => '{
@@ -209,6 +209,22 @@ function optionsframework_options() {
 		'std'  => '只珍朝夕，不负韶华。',
 		'type' => 'text'
 	);
+
+	// 网站底部导航网址
+	$options[] = array(
+		'name' => '网站底部导航网址，$name是网站标题，$link是对应链接',
+		'desc' => '请注意格式，严格的json格式
+					{
+						"$name": "$link",
+						"$name": "$link",
+						依次添加...
+					}',
+		'id'   => 'site_bottom_nav_info',
+		'type' => 'textarea',
+		'std'  => '{
+	"百度": "https://www.baidu.com",
+	"Yq小站": "https://yqqy.top"
+}');
 
 	// 作者信息
 	$options[] = array(
