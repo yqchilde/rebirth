@@ -47,15 +47,23 @@ get_header();
                     <p>您好，我的朋友！ </p>
                     <hr>
                     <!--kg-card-begin: markdown-->
-                    <ul>
-                        <?php $items = getTheLinkItems();
-                        foreach ($items as $v) : ?>
-                            <li><?php echo $v['link_name'] ?>|<a
-                                        href="<?php echo $v['link_url'] ?>"><?php echo $v['link_url'] ?></a>|<?php echo $v['link_image'] ?>
-                                |<?php echo $v['link_description'] ?>
+                    <ul class="row mx-0">
+	                    <?php $items = getTheLinkItems();
+	                    foreach ($items as $v) : ?>
+                            <li class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-4">
+                                <div class="shadow px-3 links-item-wrapper">
+                                    <div class="links-item-wrapper-header">
+                                        <a target="_blank" href="<?php echo $v['link_url'] ?>"><img src="<?php echo $v['link_image'] ?>" class="border links-item-wrapper-header-avatar" alt="<?php echo $v['link_name'] ?>"></a>
+                                    </div>
+                                    <div class="links-item-wrapper-content">
+                                        <div class="links-item-wrapper-content-name">
+                                            <a target="_blank" href="<?php echo $v['link_url'] ?>"><?php echo $v['link_name'] ?></a>
+                                        </div>
+                                        <div class="links-item-wrapper-content-desc"><?php echo $v['link_description'] ?></div>
+                                    </div>
+                                </div>
                             </li>
-                        <?php endforeach; ?>
-                    </ul>
+	                    <?php endforeach; ?>
                     <!--kg-card-end: markdown-->
                 </article>
             </div>
