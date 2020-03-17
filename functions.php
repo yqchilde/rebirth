@@ -4,7 +4,7 @@
  *
  * @package : rebirth
  * @Author: Yqchilde
- * @Version: 1.0.2
+ * @Version: 1.0.3
  * @link  https://yqqy.top
  */
 
@@ -16,7 +16,6 @@ require get_template_directory() . '/inc/trick.php';
 
 // 主题版本号
 define( 'Rebirth_Version', wp_get_theme()->get( 'Version' ) );
-define( 'BUILD_VERSION', '1' );
 
 if ( ! function_exists( 'rebirth_setup' ) ):
 

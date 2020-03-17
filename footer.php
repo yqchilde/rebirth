@@ -4,10 +4,11 @@
  *
  * @package : rebirth
  * @Author: Yqchilde
- * @Version: 1.0.2
+ * @Version: 1.0.3
  * @link  https://yqqy.top
  */
 ?>
+<?php get_template_part('tpl/home/home', 'waves'); ?>
 
 <footer class="main-footer">
     <div class="container d-flex justify-content-md-between justify-content-center">
