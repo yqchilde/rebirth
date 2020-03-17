@@ -4,7 +4,7 @@
  *
  * @package : rebirth
  * @Author: Yqchilde
- * @Version: 1.0.2
+ * @Version: 1.0.3
  * @link  https://yqqy.top
  */
 
@@ -13,15 +13,18 @@
 <section class="main-hero">
 	<?php if ( is_category() ) : ?>
 		<?php $termId = get_category( get_query_var( 'cat' ) )->term_id; ?>
-		<?php $categoryImgs = getCategoryBgImg();
-		foreach ( $categoryImgs as $k => $v ) : ?>
-			<?php if ( explode("_", $k)[1] == $termId ) : ?>
-                <div class="main-hero-bg"
-                     style="background-image: url('<?php echo $v ?>')"></div>
-			<?php endif; ?>
-		<?php endforeach; ?>
-    <?php wp_reset_query(); ?>
-    <?php else: ?>
+		<?php if ( is_array( getCategoryBgImg() ) || is_object( getCategoryBgImg() ) ) : ?>
+			<?php $categoryImgs = getCategoryBgImg();
+			foreach ( $categoryImgs as $k => $v ) : ?>
+				<?php if ( explode( "_", $k )[1] == $termId ) : ?>
+                    <div class="main-hero-bg"
+                         style="background-image: url('<?php echo $v ?>')"></div>
+				<?php endif; ?>
+			<?php endforeach; ?>
+		<?php endif; ?>
+
+		<?php wp_reset_query(); ?>
+	<?php else: ?>
         <div class="main-hero-bg"
              style="background-image: url('<?php echo rebirth_option( 'home_cover' ) ?>')"></div>
 	<?php endif; ?>
@@ -102,13 +105,29 @@
             <div class="text-center main-hero-content-description">
                 该分类下有 <?php echo getCurrentCategoryCount(); ?> 篇文章
             </div>
+            <!--判断是否是标签页-->
+		<?php elseif ( is_tag() ) : ?>
+            <div class="text-center main-hero-content-title">
+				<?php echo get_the_tags()[0]->name ?>
+            </div>
+			<?php if ( true ): ?>
+                <div
+                        class="text-center main-hero-content-description"><?php echo get_the_tags()[0]->description ?>
+                </div>
+			<?php endif ?>
+            <div class="text-center main-hero-content-description">
+                该标签下有 <?php echo get_the_tags()[0]->count ?> 篇文章
+            </div>
             <!--判断是否是首页-->
 		<?php elseif ( is_home() ) : ?>
             <div class="text-center main-hero-content-title"><?php echo rebirth_option( 'author_name' ) ?></div>
-            <div class="text-center main-hero-content-description home-sentence"></div>
+            <div class="text-center main-hero-content-description home-sentence">
+                <span id="jinrishici-sentence"></span>
+                <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+            </div>
 		<?php endif; ?>
     </div>
-    <div class="main-hero-waves-area">
+    <div class="main-hero-waves-area waves-area">
         <svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
              viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
             <defs>
