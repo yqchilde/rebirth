@@ -8,7 +8,8 @@
  * @link  https://yqqy.top
  */
 ?>
-<?php get_template_part('tpl/home/home', 'waves'); ?>
+<?php get_template_part('tpl/footer/footer', 'wave'); ?>
+<?php get_template_part('tpl/footer/footer', 'info'); ?>
 
 <footer class="main-footer">
     <div class="container d-flex justify-content-md-between justify-content-center">

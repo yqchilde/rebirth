@@ -41,12 +41,12 @@ if (get_next_post() != null) {
 <main class="main-content">
     <div class="container-sm">
         <div class="row post-content-main">
-            <article class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 px-0 borderbox post-content article-main">
+            <article class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9 px-0 borderbox post-content article-main">
                 <!--kg-card-begin: markdown-->
 				<?php echo $blog_content ?>
                 <!--kg-card-end: markdown-->
             </article>
-            <div class="d-none d-sm-none d-md-block col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 px-0 article-toc-area">
+            <div class="d-none d-lg-block col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 px-0 article-toc-area">
                 <nav id="site-toc" data-toggle="toc" class="sticky-top article-toc-nav">
                     <div class="toc-title">文章目录：</div>
                 </nav>
@@ -108,7 +108,7 @@ if (get_next_post() != null) {
             <li class="post-copyright-license">
                 <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
                                                             rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a>
-                许可协议。转载请注明出处！
+                许可协议，转载请注明出处！
             </li>
         </ul>
         <section class="d-flex justify-content-between align-items-center post-author-footer">
