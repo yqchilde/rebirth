@@ -36,7 +36,18 @@ $read_count = getPostViews(get_the_ID());
          style="background-image: url('<?php echo $post_img ?>')"></div>
     <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
         <div class="text-center main-hero-content-title"><?php the_title(); ?></div>
-        <div class="text-center main-hero-content-description"><?php echo $author . ' / ' . $create_time . ' / ' . $the_cats . ' / 阅读量 ' . $read_count ?></div>
+        <div class="text-center main-hero-content-description">
+            <?php echo $author ?>
+            <span class="date-divider">/</span>
+            <time datetime="<?php echo $create_time ?>"><?php echo $create_time ?></time>
+            <span class="date-divider">/</span>
+	        <?php echo $the_cats ?>
+            <span class="date-divider">/</span>
+            <span class="read-count">
+        阅读量
+        <a class="leancloud-visitors-count"><?php echo $read_count ?></a>
+      </span>
+        </div>
     </div>
     <div class="main-hero-header header-right"></div>
 </section>

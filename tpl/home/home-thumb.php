@@ -68,10 +68,12 @@ while ( have_posts() ) : the_post();
                     </div>
                     <div class="d-flex flex-column align-items-start ml-1 post-card-content-meta-other">
                         <div class="post-card-content-meta-other-date">
-							<?php echo get_the_time( 'Y-m-d', $post->ID ); ?>
+                            <i class="icon far fa-clock"></i>
+                            <?php echo get_the_time( 'Y-m-d', $post->ID ); ?>
                         </div>
                         <div class="post-card-content-meta-other-readtime">
-							<?php echo getReadTime( $post->post_content ); ?>分钟阅读
+                            <i class="icon far fa-bookmark"></i>
+                            <?php echo getReadTime( $post->post_content ); ?>分钟阅读
                         </div>
                     </div>
                 </div>
