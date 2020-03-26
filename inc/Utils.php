@@ -123,7 +123,7 @@ function setPostViews( $postID ) {
 function gravatar_cn( $url ) {
 	$gravatar_url = array( '0.gravatar.com', '1.gravatar.com', '2.gravatar.com', 'secure.gravatar.com' );
 
-	return str_replace( $gravatar_url, 'gravatar.loli.net', $url );
+	return str_replace( $gravatar_url, 'dn-qiniu-avatar.qbox.me', $url );
 }
 
 add_filter( 'get_avatar_url', 'gravatar_cn', 4 );
