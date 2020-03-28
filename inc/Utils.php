@@ -170,7 +170,7 @@ function getCurrentCategoryCount() {
 
 // 友情链接
 function getTheLinkItems( $id = null ) {
-	$bookmarks = get_bookmarks( 'orderby=link_id&order=asc&category=' . $id );
+	$bookmarks = get_bookmarks( 'orderby=link_id&category=' . $id );
 	$linksInfo = [];
 	if ( ! empty( $bookmarks ) ) {
 		foreach ( $bookmarks as $k => $bookmark ) {
