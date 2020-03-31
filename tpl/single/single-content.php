@@ -17,7 +17,7 @@ $blog_url = esc_url( get_the_permalink() );
 // 文章标题
 $blog_title = get_the_title();
 // 作者头像
-$blog_avatar = get_avatar( get_the_author_meta( 'user_email' ), '', '', '文章作者', array( 'class' => array( 'author-profile-image' ) ) );
+$blog_avatar = get_avatar( get_the_author_meta( 'user_email' ));
 // 作者发布文章链接
 $blog_author_others = esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) );
 // 查看更多文章链接
@@ -113,7 +113,7 @@ if (get_next_post() != null) {
         </ul>
         <section class="d-flex justify-content-between align-items-center post-author-footer">
             <section class="author-card d-flex justify-content-between align-items-center w-75">
-				<?php echo $blog_avatar ?>
+                <img class="author-profile-image" src="<?php echo getAvatarUrl($blog_avatar) ?>" alt="<?php echo $blog_author ?>">
                 <section class="w-100 author-card-content">
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-auto col-lg-auto col-xl-auto pr-0">
@@ -176,15 +176,13 @@ if (get_next_post() != null) {
 						<?php $termId = get_the_category()[0]->term_id; ?>
 						<?php $categoryImgs = getCategoryBgImg(); foreach ( $categoryImgs as $k => $v ) : ?>
                         <?php if ( explode("_", $k)[1] == $termId ) : ?>
-                            <article class="read-next-card"
-                             style="background-image: url('<?php echo $v ?>')">
+                            <article class="read-next-card" style="background-image: url('<?php echo $v ?>')">
                         <?php endif; ?>
 						<?php endforeach; ?>
                         <?php wp_reset_query(); ?>
 					<?php endif; ?>
                         <header class="read-next-card-header">
-                            <small class="read-next-card-header-sitetitle">&mdash; <?php echo $blog_author ?>>
-                                &mdash;</small>
+                            <small class="read-next-card-header-sitetitle">&mdash; <?php echo $blog_author ?>&mdash;</small>
                             <h3 class="read-next-card-header-title">
 								<?php the_category( ' ' ) ?>
                             </h3>
@@ -237,7 +235,7 @@ if (get_next_post() != null) {
                                     </header>
                                     <section class="post-read-next-excerpt">
                                         <p>
-											<?php echo diyExcerptStyle( get_next_post()->post_content, 'single' ) ?>
+											<?php echo diyExcerptStyle( get_next_post()->post_excerpt, 'single' ) ?>
                                         </p>
                                     </section>
                                 </a>
@@ -245,7 +243,7 @@ if (get_next_post() != null) {
                                     <ul class="author-list">
                                         <li class="author-list-item">
                                             <a href="<?php echo $blog_author_others ?>" class="static-avatar">
-												<?php echo $blog_avatar ?>
+                                                <img class="author-profile-image" src="<?php echo getAvatarUrl($blog_avatar) ?>" alt="<?php echo $blog_author ?>">
                                                 <span class="author-profile-name"><?php echo $blog_author ?></span>
                                             </a>
                                         </li>
@@ -277,7 +275,7 @@ if (get_next_post() != null) {
                                     </header>
                                     <section class="post-read-next-excerpt">
                                         <p>
-											<?php echo diyExcerptStyle( get_previous_post()->post_content, 'single' ) ?>
+											<?php echo diyExcerptStyle( get_previous_post()->post_excerpt, 'single' ) ?>
                                         </p>
                                     </section>
                                 </a>
@@ -285,7 +283,7 @@ if (get_next_post() != null) {
                                     <ul class="author-list">
                                         <li class="author-list-item">
                                             <a href="<?php echo $blog_author_others ?>" class="static-avatar">
-												<?php echo $blog_avatar ?>
+                                                <img class="author-profile-image" src="<?php echo getAvatarUrl($blog_avatar) ?>" alt="<?php echo $blog_author ?>">
                                                 <span class="author-profile-name"><?php echo $blog_author ?></span>
                                             </a>
                                         </li>
@@ -298,8 +296,5 @@ if (get_next_post() != null) {
 				<?php endif; ?>
             </div>
         </aside>
-        <div id="comments" class="w-100 post-comments">
-            <div id="vcomments" class="v"></div>
-        </div>
     </div>
 </main>

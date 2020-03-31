@@ -60,9 +60,21 @@ function diyExcerptStyle( $post_excerpt, $type ) {
 	$post_excerpt = preg_replace( $patternArr, $replaceArr, $post_excerpt );
 
 	if ( $type == 'home' ) {
-		return mb_strcut( $post_excerpt, 0, 400, 'utf-8' );
+		if (strlen($post_excerpt) == 0) {
+			return '';
+		} else if (strlen($post_excerpt) > 400) {
+			return mb_strcut( $post_excerpt, 0, 400, 'utf-8' ) . '...';
+		} else {
+			return mb_strcut( $post_excerpt, 0, 400, 'utf-8' );
+		}
 	} elseif ( $type == 'single' ) {
-		return mb_strcut( $post_excerpt, 0, 280, 'utf-8' ) . '...';
+		if (strlen($post_excerpt) == 0) {
+			return '';
+		} else if (strlen($post_excerpt) > 280) {
+			return mb_strcut( $post_excerpt, 0, 280, 'utf-8' ) . '...';
+		} else {
+			return mb_strcut( $post_excerpt, 0, 280, 'utf-8' );
+		}
 	} else {
 		return null;
 	}
@@ -305,6 +317,18 @@ function autoLinkNoFollow( $content ) {
 	return $content;
 }
 
+// 获取网站底部导航信息
 function getSiteNavInfo() {
 	return json_decode( rebirth_option( 'site_bottom_nav_info' ) );
+}
+
+// 提取默认avatar的src
+function getAvatarUrl( $avatarLink ) {
+	preg_match( '/src=["|\'](.+)[\&|"|\']/U', $avatarLink, $matches );
+
+	if ( isset( $matches[1] ) && ! empty( $matches[1] ) ) {
+		return esc_url_raw( $matches[1] );
+	}
+
+	return '';
 }
