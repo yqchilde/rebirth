@@ -296,5 +296,8 @@ if (get_next_post() != null) {
 				<?php endif; ?>
             </div>
         </aside>
+        <div id="comments" class="w-100 post-comments">
+            <div id="vcomments" class="v"></div>
+        </div>
     </div>
 </main>
