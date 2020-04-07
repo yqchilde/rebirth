@@ -4,7 +4,6 @@
  *
  * @package : rebirth
  * @Author: Yqchilde
- * @Version: 1.0.3
  * @link  https://yqqy.top
  */
 
@@ -60,17 +59,17 @@ function diyExcerptStyle( $post_excerpt, $type ) {
 	$post_excerpt = preg_replace( $patternArr, $replaceArr, $post_excerpt );
 
 	if ( $type == 'home' ) {
-		if (strlen($post_excerpt) == 0) {
+		if ( strlen( $post_excerpt ) == 0 ) {
 			return '';
-		} else if (strlen($post_excerpt) > 400) {
+		} else if ( strlen( $post_excerpt ) > 400 ) {
 			return mb_strcut( $post_excerpt, 0, 400, 'utf-8' ) . '...';
 		} else {
 			return mb_strcut( $post_excerpt, 0, 400, 'utf-8' );
 		}
 	} elseif ( $type == 'single' ) {
-		if (strlen($post_excerpt) == 0) {
+		if ( strlen( $post_excerpt ) == 0 ) {
 			return '';
-		} else if (strlen($post_excerpt) > 280) {
+		} else if ( strlen( $post_excerpt ) > 280 ) {
 			return mb_strcut( $post_excerpt, 0, 280, 'utf-8' ) . '...';
 		} else {
 			return mb_strcut( $post_excerpt, 0, 280, 'utf-8' );
@@ -292,15 +291,19 @@ function autoLinkNoFollow( $content ) {
 				$tag2     = $matches[ $i ][0];
 				$url      = $matches[ $i ][0];
 				$noFollow = '';
-				$pattern  = '/target\s*=\s*"\s*_blank\s*"/';
+				$pattern  = '<a href="(.*?)">';
 				preg_match( $pattern, $tag2, $match, PREG_OFFSET_CAPTURE );
-				if ( count( $match ) < 1 ) {
-					$noFollow .= ' target="_blank" ';
-				}
-				$pattern = '/rel\s*=\s*"\s*[n|d]ofollow\s*"/';
-				preg_match( $pattern, $tag2, $match, PREG_OFFSET_CAPTURE );
-				if ( count( $match ) < 1 ) {
-					$noFollow .= ' rel="nofollow" ';
+				if ( $match[1][0][0] != "#" ) {
+					$pattern = '/target\s*=\s*"\s*_blank\s*"/';
+					preg_match( $pattern, $tag2, $match, PREG_OFFSET_CAPTURE );
+					if ( count( $match ) < 1 ) {
+						$noFollow .= ' target="_blank" ';
+					}
+					$pattern = '/rel\s*=\s*"\s*[n|d]ofollow\s*"/';
+					preg_match( $pattern, $tag2, $match, PREG_OFFSET_CAPTURE );
+					if ( count( $match ) < 1 ) {
+						$noFollow .= ' rel="nofollow" ';
+					}
 				}
 				$pos = strpos( $url, $srcUrl );
 				if ( $pos === false ) {
@@ -331,4 +334,75 @@ function getAvatarUrl( $avatarLink ) {
 	}
 
 	return '';
+}
+
+// 文章关键词seo description优化
+function wp_description() {
+	global $s, $post;
+	$description = '';
+	$blog_name   = get_bloginfo( 'name' );
+	if ( is_singular() ) {  //文章页如果存在描述字段，则显示描述，否则截取文章内容
+		if ( ! empty ( $post->post_excerpt ) ) {
+			$text = $post->post_excerpt;
+		} else {
+			$text = $post->post_content;
+		}
+		$description = trim( str_replace( array(
+			"\r\n",
+			"\r",
+			"\n",
+			"　",
+			" "
+		), " ", str_replace( "\"", "'", strip_tags( $text ) ) ) );
+		if ( ! ( $description ) ) {
+			$description = $blog_name . "-" . trim( wp_title( '', false ) );
+		}
+	} elseif ( is_home() ) {//首页显示描述设置
+		$description = rebirth_option( 'site_meta_description' ); // 首頁要自己加
+	} elseif ( is_tag() ) {//标签页显示描述设置
+		$description = $blog_name . "有关 '" . single_tag_title( '', false ) . "' 的文章";
+	} elseif ( is_category() ) {//分类页显示描述设置
+		$description = $blog_name . "有关 '" . single_cat_title( '', false ) . "' 的文章";
+	} elseif ( is_archive() ) {//文档页显示描述设置
+		$description = $blog_name . "在: '" . trim( wp_title( '', false ) ) . "' 的文章";
+	} elseif ( is_search() ) {//搜索页显示描述设置
+		$description = $blog_name . ": '" . esc_html( $s, 1 ) . "' 的搜索結果";
+	} else {//默认其他页显示描述设置
+		$description = $blog_name . "有关 '" . trim( wp_title( '', false ) ) . "' 的文章";
+	}
+
+	//输出描述
+	return $description = mb_substr( $description, 0, 220, 'utf-8' ) . '..';
+//	echo "<meta name=\"description\" content=\"$description\" />\n";
+}
+
+// 文章关键词seo keywords优化
+function wp_keywords() {
+	global $s, $post;
+	$keywords = '';
+	if ( is_single() ) {  //如果是文章页，关键词则是：标签+分类ID
+		if ( get_the_tags( $post->ID ) ) {
+			foreach ( get_the_tags( $post->ID ) as $tag ) {
+				$keywords .= $tag->name . ', ';
+			}
+		}
+		foreach ( get_the_category( $post->ID ) as $category ) {
+			$keywords .= $category->cat_name . ', ';
+		}
+		$keywords = substr_replace( $keywords, '', - 2 );
+	} elseif ( is_home() ) {
+		$keywords = rebirth_option( 'site_meta_keywords' );  //主页关键词设置
+	} elseif ( is_tag() ) {  //标签页关键词设置
+		$keywords = single_tag_title( '', false );
+	} elseif ( is_category() ) {//分类页关键词设置
+		$keywords = single_cat_title( '', false );
+	} elseif ( is_search() ) {//搜索页关键词设置
+		$keywords = esc_html( $s, 1 );
+	} else {//默认页关键词设置
+		$keywords = trim( wp_title( '', false ) );
+	}
+	if ( $keywords ) {  //输出关键词
+		return $keywords;
+	}
+	return "";
 }

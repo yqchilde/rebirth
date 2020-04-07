@@ -4,7 +4,6 @@
  *
  * @package : rebirth
  * @Author: Yqchilde
- * @Version: 1.0.3
  * @link  https://yqqy.top
  */
 ?>
@@ -37,35 +36,12 @@
 			echo " - ";
 			bloginfo( 'description' );
 		} ?></title>
-
-
 	<?php
-	if ( rebirth_option( 'site_meta' ) == true ) {
-		$keywords    = '';
-		$description = '';
-		if ( is_singular() ) {
-			$keywords   = '';
-			$tags       = get_the_tags();
-			$categories = get_the_category();
-			if ( $tags ) {
-				foreach ( $tags as $tag ) {
-					$keywords .= $tag->name . ',';
-				};
-			};
-			if ( $categories ) {
-				foreach ( $categories as $category ) {
-					$keywords .= $category->name . ',';
-				};
-			};
-			$description = mb_strimwidth( str_replace( "\r\n", '', strip_tags( $post->post_content ) ), 0, 240, '…' );
-		} else {
-			$keywords    = rebirth_option( 'site_meta_keywords' );
-			$description = rebirth_option( 'site_meta_description' );
-		};
-		?>
-        <meta name="description" content="<?php echo $description; ?>"/>
-        <meta name="keywords" content="<?php echo $keywords; ?>"/>
-	<?php } ?>
+    $keywords = wp_keywords();
+    $description = wp_description();
+	?>
+	<meta name="keywords" content="<?php echo $keywords; ?>"/>
+    <meta name="description" content="<?php echo $description; ?>"/>
     <link rel="shortcut icon" href="<?php echo rebirth_option( 'favicon_link' ) ?>"/>
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <link rel="dns-prefetch" href="<?php echo home_url(); ?>/">
