@@ -97,18 +97,9 @@ function optionsframework_options() {
 		'type' => 'text'
 	);
 
-	// 是否开启自定义关键词和描述
-	$options[] = array(
-		'name' => '开启自定义关键词和描述',
-		'desc' => '是否开启自定义关键词和描述',
-		'id'   => 'site_meta',
-		'std'  => '0',
-		'type' => 'checkbox'
-	);
-
 	// 网站关键词
 	$options[] = array(
-		'name' => '网站关键词',
+		'name' => '网站首页关键词',
 		'desc' => '各关键字间用半角逗号","分割，数量在5个以内最佳。',
 		'id'   => 'site_meta_keywords',
 		'type' => 'text'
@@ -116,7 +107,7 @@ function optionsframework_options() {
 
 	// 网站描述
 	$options[] = array(
-		'name' => '网站描述',
+		'name' => '网站首页描述',
 		'desc' => '用简洁的文字描述本站点，字数建议在120个字以内。',
 		'id'   => 'site_meta_description',
 		'std'  => '',
@@ -264,6 +255,24 @@ function optionsframework_options() {
 		'desc' => '写下一段简洁的文字，展示在你的作者页',
 		'id'   => 'author_flag',
 		'std'  => '',
+		'type' => 'text'
+	);
+
+	// 博客弹窗时间
+	$options[] = array(
+		'name' => '弹窗时间',
+		'desc' => '弹窗时间，例如2020-04-07T08:00:00
+		注意有个日期和时间中间有个「T」',
+		'id'   => 'toast_time',
+		'type' => 'text'
+	);
+
+	// 博客弹窗内容
+	$options[] = array(
+		'name' => '弹窗内容',
+		'desc' => '要弹窗的内容',
+		'id'   => 'toast_content',
+		'std'  => '欢迎访问个人博客！如果觉得这个弹窗频繁，可以手动叉掉后暂时不会再出现哦！',
 		'type' => 'text'
 	);
 
