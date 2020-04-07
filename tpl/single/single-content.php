@@ -4,7 +4,6 @@
  *
  * @package : rebirth
  * @Author: Yqchilde
- * @Version: 1.0.3
  * @link  https://yqqy.top
  */
 // 文章内容
