@@ -34,11 +34,12 @@ get_header();
         }
     </style>
     <div class="main-hero-bg responsive-header-img"></div>
-    <div class="main-hero-header header-right"></div>
+	<?php get_template_part( 'tpl/site/site', 'wave' ); ?>
     <div class="d-flex flex-column align-content-center justify-content-center main-hero-content">
         <div class="text-center main-hero-content-title">关于本站</div>
         <div class="text-center main-hero-content-description">
-            Yqchilde / <time datetime="2018-10-06">2020-02-09</time> /
+            Yqchilde /
+            <time datetime="2018-10-06">2020-02-09</time>
         </div>
     </div>
 </section>

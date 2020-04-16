@@ -215,7 +215,8 @@ function optionsframework_options() {
 		'std'  => '{
 	"百度": "https://www.baidu.com",
 	"Yq小站": "https://yqqy.top"
-}');
+}'
+	);
 
 	// 作者信息
 	$options[] = array(
@@ -247,6 +248,16 @@ function optionsframework_options() {
 		'desc' => '最佳尺寸92px*92px，用于在作者页显示',
 		'id'   => 'author_avatar',
 		'type' => 'upload'
+	);
+
+	// gravatar头像源
+	$options[] = array(
+		'name' => 'gravatar头像源',
+		'desc' => '这里填写你的gravatar头像中文源，默认使用极客族
+		不需要写http(s)://',
+		'id'   => 'gravatar_source',
+		'std'  => 'sdn.geekzu.org',
+		'type' => 'text'
 	);
 
 	// 自定义关键词和描述
@@ -366,6 +377,12 @@ function optionsframework_options() {
 		),
 	);
 
+	// Valine配置提示
+	$options[] = array(
+		'name' => '主题评论采用第三方Valine系统',
+		'desc' => 'Valine文档：<a href="https://valine.js.org" target="_blank">https://valine.js.org</a>',
+		'type' => 'info'
+	);
 
 	// appId
 	$options[] = array(

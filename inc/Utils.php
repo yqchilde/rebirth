@@ -134,7 +134,11 @@ function setPostViews( $postID ) {
 function gravatar_cn( $url ) {
 	$gravatar_url = array( '0.gravatar.com', '1.gravatar.com', '2.gravatar.com', 'secure.gravatar.com' );
 
-	return str_replace( $gravatar_url, 'dn-qiniu-avatar.qbox.me', $url );
+	if ( rebirth_option( 'gravatar_source' ) ) {
+		return str_replace( $gravatar_url, rebirth_option( 'gravatar_source' ), $url );
+	}
+
+	return str_replace( $gravatar_url, 'sdn.geekzu.org', $url );
 }
 
 add_filter( 'get_avatar_url', 'gravatar_cn', 4 );
@@ -404,5 +408,6 @@ function wp_keywords() {
 	if ( $keywords ) {  //输出关键词
 		return $keywords;
 	}
+
 	return "";
 }

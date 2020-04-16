@@ -7,7 +7,7 @@
  * @link  https://yqqy.top
  */
 // 文章内容
-$blog_content = autoLinkNoFollow(get_the_content());
+$blog_content = autoLinkNoFollow( get_the_content() );
 
 // 文章作者
 $blog_author = esc_attr( get_the_author() );
@@ -16,36 +16,43 @@ $blog_url = esc_url( get_the_permalink() );
 // 文章标题
 $blog_title = get_the_title();
 // 作者头像
-$blog_avatar = get_avatar( get_the_author_meta( 'user_email' ));
+$blog_avatar = get_avatar( get_the_author_meta( 'user_email' ) );
 // 作者发布文章链接
 $blog_author_others = esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) );
 // 查看更多文章链接
 $the_more_article_link = esc_url( get_category_link( get_the_category()[0]->term_id ) );
 // 判断上一篇文章有没有
-if (get_previous_post() != null) {
+if ( get_previous_post() != null ) {
 	// 上一篇文章分类
 	$prev_blog_cat = get_category( get_the_category( get_previous_post()->ID )[0]->term_id )->cat_name;
-    // 上一篇文章链接
+	// 上一篇文章链接
 	$prev_blog_link = get_permalink( get_previous_post()->ID );
 }
 // 判断下一篇文章有没有
-if (get_next_post() != null) {
+if ( get_next_post() != null ) {
 	// 下一篇文章分类
 	$next_blog_cat = get_category( get_the_category( get_next_post()->ID )[0]->term_id )->cat_name;
-    // 下一篇文章链接
+	// 下一篇文章链接
 	$next_blog_link = get_permalink( get_next_post()->ID );
 }
 
 ?>
 <main class="main-content">
     <div class="container-sm">
+        <nav class="d-none d-md-block pl-0 post-content-main-breadcrumb mb-3" aria-label="breadcrumb">
+            <ol class="px-3 py-0 px-md-0 breadcrumb">
+                <li class="breadcrumb-item"><a href="<?php echo site_url() ?>"><?php echo rebirth_option( "site_name" ) ?></a></li>
+                <li class="breadcrumb-item"><?php the_category( ' ' ) ?></li>
+                <li class="breadcrumb-item active" aria-current="page"><?php echo $blog_title ?></li>
+            </ol>
+        </nav>
         <div class="row post-content-main">
             <article class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9 px-0 borderbox post-content article-main">
                 <!--kg-card-begin: markdown-->
 				<?php echo $blog_content ?>
                 <!--kg-card-end: markdown-->
             </article>
-            <div class="d-none d-lg-block col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 px-0 article-toc-area">
+            <div class="d-none d-md-block col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 px-0 article-toc-area">
                 <nav id="site-toc" data-toggle="toc" class="sticky-top article-toc-nav">
                     <div class="toc-title">文章目录：</div>
                 </nav>
@@ -79,14 +86,14 @@ if (get_next_post() != null) {
                     <div class="row">
                         <div class="col-sm">
                             <figure class="figure">
-                                <img src="<?php echo rebirth_option('donate_alipay') ?>"
+                                <img src="<?php echo rebirth_option( 'donate_alipay' ) ?>"
                                      alt="支付宝捐赠" title="请使用支付宝扫一扫进行捐赠">
                                 <figcaption class="figure-caption">请使用支付宝扫一扫进行捐赠</figcaption>
                             </figure>
                         </div>
                         <div class="col-sm">
                             <figure class="figure">
-                                <img src="<?php echo rebirth_option('donate_wxpay') ?>"
+                                <img src="<?php echo rebirth_option( 'donate_wxpay' ) ?>"
                                      alt="微信捐赠" title="请使用微信扫一扫进行赞赏">
                                 <figcaption class="figure-caption">请使用微信扫一扫进行赞赏</figcaption>
                             </figure>
@@ -112,7 +119,8 @@ if (get_next_post() != null) {
         </ul>
         <section class="d-flex justify-content-between align-items-center post-author-footer">
             <section class="author-card d-flex justify-content-between align-items-center w-75">
-                <img class="author-profile-image" src="<?php echo getAvatarUrl($blog_avatar) ?>" alt="<?php echo $blog_author ?>">
+                <img class="author-profile-image" src="<?php echo getAvatarUrl( $blog_avatar ) ?>"
+                     alt="<?php echo $blog_author ?>">
                 <section class="w-100 author-card-content">
                     <div class="row">
                         <div class="col-12 col-sm-12 col-md-auto col-lg-auto col-xl-auto pr-0">
@@ -122,15 +130,16 @@ if (get_next_post() != null) {
                         </div>
                         <div class="col-12 col-sm-12 col-md-auto col-lg-auto col-xl-auto">
                             <div class="author-card-social">
-	                            <?php if ( rebirth_option( 'author_qq' ) ) : ?>
+								<?php if ( rebirth_option( 'author_qq' ) ) : ?>
                                     <a class="site-tooltip author-card-social-links" target="_blank"
-                                       rel="noreferrer noopener nofollow" href="<?php echo rebirth_option( 'author_qq' ) ?>" data-toggle="tooltip"
+                                       rel="noreferrer noopener nofollow"
+                                       href="<?php echo rebirth_option( 'author_qq' ) ?>" data-toggle="tooltip"
                                        data-placement="top" title="QQ">
                                         <i class="fab fa-qq"></i>
                                     </a>
-	                            <?php endif; ?>
+								<?php endif; ?>
 
-	                            <?php if ( rebirth_option( 'author_wechat' ) ) : ?>
+								<?php if ( rebirth_option( 'author_wechat' ) ) : ?>
                                     <a class="site-popover author-card-social-links"
                                        href="#"
                                        data-container=".site-wrapper"
@@ -141,27 +150,29 @@ if (get_next_post() != null) {
                                     >
                                         <i class="fab fa-weixin"></i>
                                     </a>
-	                            <?php endif; ?>
+								<?php endif; ?>
 
-	                            <?php if ( rebirth_option( 'author_sina' ) ) : ?>
+								<?php if ( rebirth_option( 'author_sina' ) ) : ?>
                                     <a class="site-tooltip author-card-social-links" target="_blank"
-                                       rel="noreferrer noopener nofollow" href="<?php echo rebirth_option( 'author_sina' ) ?>" data-toggle="tooltip"
+                                       rel="noreferrer noopener nofollow"
+                                       href="<?php echo rebirth_option( 'author_sina' ) ?>" data-toggle="tooltip"
                                        data-placement="top" title="WeiBo">
                                         <i class="fab fa-weibo"></i>
                                     </a>
-	                            <?php endif; ?>
+								<?php endif; ?>
 
-	                            <?php if ( rebirth_option( 'author_github' ) ) : ?>
+								<?php if ( rebirth_option( 'author_github' ) ) : ?>
                                     <a class="site-tooltip author-card-social-links" target="_blank"
-                                       rel="noreferrer noopener nofollow" href="<?php echo rebirth_option( 'author_github' ) ?>" data-toggle="tooltip"
+                                       rel="noreferrer noopener nofollow"
+                                       href="<?php echo rebirth_option( 'author_github' ) ?>" data-toggle="tooltip"
                                        data-placement="top" title="Github">
                                         <i class="fab fa-github"></i>
                                     </a>
-	                            <?php endif; ?>
+								<?php endif; ?>
                             </div>
                         </div>
                     </div>
-                    <p><?php echo rebirth_option('author_flag') ?></p>
+                    <p><?php echo rebirth_option( 'author_flag' ) ?></p>
                 </section>
             </section>
             <div class="post-footer-right">
@@ -172,16 +183,18 @@ if (get_next_post() != null) {
             <div class="row read-next-feed">
                 <div class="col-lg px-0 px-sm-3 d-flex min-h-300 post-read-more-item">
 					<?php if ( is_single() ) : ?>
-						<?php $termId = get_the_category()[0]->term_id; ?>
-						<?php $categoryImgs = getCategoryBgImg(); foreach ( $categoryImgs as $k => $v ) : ?>
-                        <?php if ( explode("_", $k)[1] == $termId ) : ?>
-                            <article class="read-next-card" style="background-image: url('<?php echo $v ?>')">
-                        <?php endif; ?>
+					<?php $termId = get_the_category()[0]->term_id; ?>
+					<?php $categoryImgs = getCategoryBgImg();
+					foreach ( $categoryImgs as $k => $v ) : ?>
+					<?php if ( explode( "_", $k )[1] == $termId ) : ?>
+                    <article class="read-next-card" style="background-image: url('<?php echo $v ?>')">
+						<?php endif; ?>
 						<?php endforeach; ?>
-                        <?php wp_reset_query(); ?>
-					<?php endif; ?>
+						<?php wp_reset_query(); ?>
+						<?php endif; ?>
                         <header class="read-next-card-header">
-                            <small class="read-next-card-header-sitetitle">&mdash; <?php echo $blog_author ?>&mdash;</small>
+                            <small class="read-next-card-header-sitetitle">&mdash;
+								<?php echo $blog_author ?>&mdash;</small>
                             <h3 class="read-next-card-header-title">
 								<?php the_category( ' ' ) ?>
                             </h3>
@@ -217,7 +230,8 @@ if (get_next_post() != null) {
 				<?php if ( get_next_post() ) : ?>
                     <div class="col-lg px-0 px-sm-3 d-flex min-h-300 post-read-more-item">
                         <article class="post-read-next">
-                            <a class="post-read-next-image-link" href="<?php echo $next_blog_link ?>">
+                            <a class="post-read-image-link post-read-next-image-link"
+                               href="<?php echo $next_blog_link ?>">
                                 <img class="post-read-next-image"
                                      src="<?php echo esc_url( getNextThumbnailUrl() ) ?>"
                                      alt="#">
@@ -242,7 +256,9 @@ if (get_next_post() != null) {
                                     <ul class="author-list">
                                         <li class="author-list-item">
                                             <a href="<?php echo $blog_author_others ?>" class="static-avatar">
-                                                <img class="author-profile-image" src="<?php echo getAvatarUrl($blog_avatar) ?>" alt="<?php echo $blog_author ?>">
+                                                <img class="author-profile-image"
+                                                     src="<?php echo getAvatarUrl( $blog_avatar ) ?>"
+                                                     alt="<?php echo $blog_author ?>">
                                                 <span class="author-profile-name"><?php echo $blog_author ?></span>
                                             </a>
                                         </li>
@@ -257,7 +273,8 @@ if (get_next_post() != null) {
 				<?php if ( get_previous_post() ) : ?>
                     <div class="col-xl px-0 px-sm-3 d-flex min-h-300 post-read-more-item">
                         <article class="post-read-next">
-                            <a class="post-read-next-image-link" href="<?php echo $prev_blog_link ?>">
+                            <a class="post-read-image-link post-read-next-image-link"
+                               href="<?php echo $prev_blog_link ?>">
                                 <img class="post-read-next-image"
                                      src="<?php echo esc_url( getPrevThumbnailUrl() ) ?>"
                                      alt="#">
@@ -282,7 +299,9 @@ if (get_next_post() != null) {
                                     <ul class="author-list">
                                         <li class="author-list-item">
                                             <a href="<?php echo $blog_author_others ?>" class="static-avatar">
-                                                <img class="author-profile-image" src="<?php echo getAvatarUrl($blog_avatar) ?>" alt="<?php echo $blog_author ?>">
+                                                <img class="author-profile-image"
+                                                     src="<?php echo getAvatarUrl( $blog_avatar ) ?>"
+                                                     alt="<?php echo $blog_author ?>">
                                                 <span class="author-profile-name"><?php echo $blog_author ?></span>
                                             </a>
                                         </li>

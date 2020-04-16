@@ -5,14 +5,16 @@
             appId: rebirth_option.valine_appid,
             appKey: rebirth_option.valine_appkey,
             serverURLs: rebirth_option.valine_serverurls,
-            notify: !1,
-            verify: !0,
             avatar: "mm",
             visitor: !0,
             highlight: !0,
             recordIP: !0,
             placeholder: "请您理智发言，共建美好社会！",
-            path: window.location.pathname
+            path: window.location.pathname,
+            meta: ['nick', 'mail', 'link'],
+            pageSize: 10,
+            lang: 'zh-CN',
+            avatarForce: false
         });
         let e = {}, t = $(this).index(), a = rebirth_option.home_url;
 

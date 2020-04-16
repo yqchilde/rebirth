@@ -1,6 +1,6 @@
 # WordPress Theme - Rebirth
 
-![](https://img.shields.io/github/v/release/yqchilde/rebirth.svg?style=flat-square) ![](https://img.shields.io/github/commits-since/yqchilde/rebirth/1.0.4?logo=dev&style=flat-square)
+![](https://img.shields.io/github/v/release/yqchilde/rebirth.svg?style=flat-square) ![](https://img.shields.io/github/commits-since/yqchilde/rebirth/1.0.5?logo=dev&style=flat-square)
 ### 声明
 
 Rebirth主题的WordPress版本是完全移植过来的，原主题为`JaxsonWang(淮城一只猫)制作`，且是ghost博客主题，详情请看 [点击查看](https://github.com/JaxsonWang/Rebirth)

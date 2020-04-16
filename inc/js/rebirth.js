@@ -7708,7 +7708,7 @@ function(t) {
 				return regeneratorRuntime.wrap(function(t) {
 					for (;;) switch (t.prev = t.next) {
 					case 0:
-						return n = "https://cdn.jsdelivr.net/npm/prismjs@1.19.0", t.next = 3, e.document.querySelectorAll(".post-content pre>code");
+						return n = "https://cdn.jsdelivr.net/npm/prismjs@1.20.0", t.next = 3, e.document.querySelectorAll(".post-content pre>code");
 					case 3:
 						if (0 !== (r = t.sent).length) {
 							t.next = 6;
@@ -7890,13 +7890,7 @@ function(t) {
 				}, 500)
 			})
 		}),
-		N = (P(window), function(t) {
-			t.ScrollReveal().reveal(".home-post-item", {
-				delay: 100,
-				interval: 16,
-				reset: !0
-			})
-		}),
+		N = (P(window)),
 		F = function() {
 			!
 			function() {
