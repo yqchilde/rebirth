@@ -18,6 +18,14 @@ a:hover {
     margin-right: 5px
 }
 
+.overflow-x-hidden {
+    overflow-x: hidden
+}
+
+.overflow-x-scroll {
+    overflow-x: scroll
+}
+
 @media (prefers-color-scheme:light) {
     :root {
         --color-content: light

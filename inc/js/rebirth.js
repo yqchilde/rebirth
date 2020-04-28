@@ -7889,33 +7889,8 @@ function(t) {
 					scrollTop: 0
 				}, 500)
 			})
-		}),
-		N = (P(window)),
-		F = function() {
-			!
-			function() {
-				var t = window.location.href,
-					e = document.querySelector(".curr-page"),
-					n = document.querySelector(".total-pages");
-				if (e && n) {
-					var r = Number.parseInt(e.textContent, 10),
-						o = Number.parseInt(n.textContent, 10),
-						i = document.querySelector(".pagination"),
-						a = document.querySelector(".page-item");
-					if (o > 1) {
-						var u = [];
-						(function(t, e) {
-							for (var n = [], r = Math.max(2, t - 2); r <= Math.min(e - 1, t + 2); r++) n.push(r);
-							return t - 2 > 2 && n.unshift("..."), t + 2 < e - 1 && n.push("..."), n.unshift(1), n.push(e), n
-						})(r, o).forEach(function(e) {
-							var n = t.split("/");
-							e === r ? u.push('<li class="page-item active"><span class="page-link">' + e + "</span></li>") : "number" == typeof e ? ("page" === n[n.length - 3] && (t = t.replace(/\/page\/.*$/, "") + "/"), u.push('<li class="page-item"><a data-pjax class="page-link" href="' + t + "page/" + e + '/" aria-label="第' + e + '页">' + e + "</a></li>")) : u.push('<li class="page-item ellipsis"><a class="page-link">...</a></li>')
-						}), null !== a && (1 === r ? a.insertAdjacentHTML("beforebegin", u.join("")) : a.insertAdjacentHTML("afterend", u.join("")))
-					} else null != i && (i.style.display = "none")
-				}
-			}()
-		},
-		D = (F(), function(t, e) {
+		}(window)),
+		D = (function(t, e) {
 			return t.filter(e).add(t.find(e))
 		}),
 		B = function(t, e, n) {
@@ -7930,7 +7905,7 @@ function(t) {
 						a = t(t.parseHTML(e.match(/<body[^>]*>([\s\S.]*)<\/body>/i)[0])),
 						u = e.match(/<body[^>]*class="([^>]*)">/i)[1],
 						c = t("body");
-					r.title = D(i, "title").text(), t(o).scrollTop(0), B(".main-hero", a, t), B(".main-content", a, t), B(".header-navbar ul.navbar-nav", a, t), B(".sidebar-container .side-navbar-nav", a, t), B(".fixed-to-top", a, t), t(n.target).hasClass("side-menu-nav-item") && (t(".site-wrapper").toggleClass("toggled"), t(".sidebar-toggler").show(250), c.removeClass("overflow-hidden"), t(".sidebar-container").removeClass("boxshadow-right"), t(".global-modal").remove()), t(n.currentTarget).hasClass("ghost-search-item") && (c.removeClass("overflow-hidden"), t(".search-wrapper").hide(250), t(".global-modal-pc-search").remove(), t("#ghost-search-field").val(""), t("#ghost-search-results").html(""), t(".search-meta[data-no-results-text]").text("有 0 篇文章"), c.hasClass("mobile-content") && (t(".site-wrapper").toggleClass("toggled"), t(".sidebar-toggler").show(250), c.removeClass("overflow-hidden"), t(".sidebar-container").removeClass("boxshadow-right"), t(".global-modal").remove())), 0 !== D(a, ".site-progress").length ? (t(".main-wrapper").prepend(D(a, ".site-progress")), h(o)) : t(".site-progress").remove(), c.scrollspy("dispose"), c.scrollspy("refresh"), p(o), b(o), E(o), f(o), l(o), w(o), _(o), U(o), C(o), P(o), N(o), F(), void 0 !== o.ga && o.ga("send", "pageview", o.location.pathname + o.location.search), void 0 !== o._hmt && o._hmt.push(["_trackPageview", o.location.pathname + o.location.search]), t(".site-tooltip-wrapper").remove(), t(".site-popover-wrapper").remove(), t(c).attr("class", u), c.removeClass("overflow-hidden"), t(".pjax-loading-wrapper").fadeOut("slow")
+					r.title = D(i, "title").text(), t(o).scrollTop(0), B(".main-hero", a, t), B(".main-content", a, t), B(".header-navbar ul.navbar-nav", a, t), B(".sidebar-container .side-navbar-nav", a, t), B(".fixed-to-top", a, t), t(n.target).hasClass("side-menu-nav-item") && (t(".site-wrapper").toggleClass("toggled"), t(".sidebar-toggler").show(250), c.removeClass("overflow-hidden"), t(".sidebar-container").removeClass("boxshadow-right"), t(".global-modal").remove()), t(n.currentTarget).hasClass("ghost-search-item") && (c.removeClass("overflow-hidden"), t(".search-wrapper").hide(250), t(".global-modal-pc-search").remove(), t("#ghost-search-field").val(""), t("#ghost-search-results").html(""), t(".search-meta[data-no-results-text]").text("有 0 篇文章"), c.hasClass("mobile-content") && (t(".site-wrapper").toggleClass("toggled"), t(".sidebar-toggler").show(250), c.removeClass("overflow-hidden"), t(".sidebar-container").removeClass("boxshadow-right"), t(".global-modal").remove())), 0 !== D(a, ".site-progress").length ? (t(".main-wrapper").prepend(D(a, ".site-progress")), h(o)) : t(".site-progress").remove(), c.scrollspy("dispose"), c.scrollspy("refresh"), p(o), b(o), E(o), f(o), l(o), w(o), _(o), U(o), C(o), P(o), void 0 !== o.ga && o.ga("send", "pageview", o.location.pathname + o.location.search), void 0 !== o._hmt && o._hmt.push(["_trackPageview", o.location.pathname + o.location.search]), t(".site-tooltip-wrapper").remove(), t(".site-popover-wrapper").remove(), t(c).attr("class", u), c.removeClass("overflow-hidden"), t(".pjax-loading-wrapper").fadeOut("slow")
 				}
 			}), i && o.history.pushState(null, "", e)
 		};
@@ -7951,5 +7926,10 @@ function(t) {
 				/\[x]\s/gm.test(this.innerHTML) && (this.innerHTML = this.innerHTML.replace(/\[x]\s/gm, '<span class="span-todo-checkbox checked"></span><input type="checkbox" checked disabled class="todo-list-input checked"/>&nbsp;'), e(this).parent().addClass("todo-list")), /\[\s]\s/gm.test(this.innerHTML) && (this.innerHTML = this.innerHTML.replace(/\[\s]\s/gm, '<span class="span-todo-checkbox"></span><input type="checkbox" disabled class="todo-list-input"/>&nbsp;'), e(this).parent().addClass("todo-list"))
 			})
 		})
-	}(window)
+	}(window), function(t) {
+		t.document.querySelectorAll(".post-content table").forEach(e=>{
+			const n=t.document.createElement("div");
+			n.className="overflow-x-scroll table-area",n.innerHTML=`${e.outerHTML}`,e.parentNode.insertBefore(n,e),e.remove()
+		}
+	)}(window)
 }]);

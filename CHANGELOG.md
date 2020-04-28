@@ -7,6 +7,7 @@
 - 🎁 新增后台设置gravatar头像源，默认为极客族，感谢[@MuenYu](https://github.com/MuenYu)
 - 🎁 新增面包屑导航
 - ❤ 文章页样式微调
+- 📌修复移动端表格错位问题
 
 ### Version 1.0.4
 
