@@ -7929,7 +7929,7 @@ function(t) {
 	}(window), function(t) {
 		t.document.querySelectorAll(".post-content table").forEach(e=>{
 			const n=t.document.createElement("div");
-			n.className="overflow-x-scroll table-area",n.innerHTML=`${e.outerHTML}`,e.parentNode.insertBefore(n,e),e.remove()
+			n.className="overflow-x-auto table-area",n.innerHTML=`${e.outerHTML}`,e.parentNode.insertBefore(n,e),e.remove()
 		}
 	)}(window)
 }]);

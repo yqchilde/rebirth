@@ -22,8 +22,8 @@ a:hover {
     overflow-x: hidden
 }
 
-.overflow-x-scroll {
-    overflow-x: scroll
+.overflow-x-auto {
+    overflow-x: auto
 }
 
 @media (prefers-color-scheme:light) {
@@ -3750,6 +3750,20 @@ a:hover {
     .post-comments .v .vcards .vcard .vh,.post-comments .v .vcards .vcard .vquote {
         border-color: #000
     }
+
+    .post-comments .v .vcards .vcard .vcontent {
+        color: #4a4a4a
+    }
+
+    .post-comments .v .vcards .vcard .vcontent.expand:before {
+        background: -webkit-gradient(linear,left top, left bottom,from(transparent),to(rgba(0,0,0,.9)));
+        background: linear-gradient(180deg,transparent,rgba(0,0,0,.9))
+    }
+
+    .post-comments .v .vcards .vcard .vcontent.expand:after {
+        color: hsla(0,0%,100%,.5);
+        background: #000
+    }
 }[data-theme=dark] .post-comments .v * {
      color: hsla(0,0%,100%,.5);
      background-color: #263238
@@ -3828,7 +3842,15 @@ a:hover {
                       border-left: 1px dashed #000
                   }[data-theme=dark] .post-comments .v .vcards .vcard .vh,[data-theme=dark] .post-comments .v .vcards .vcard .vquote {
                        border-color: #000
-                   }
+                   }[data-theme=dark] .post-comments .v .vcards .vcard .vcontent {
+                        color: #4a4a4a
+                    }[data-theme=dark] .post-comments .v .vcards .vcard .vcontent.expand:before {
+                         background: -webkit-gradient(linear,left top, left bottom,from(transparent),to(rgba(0,0,0,.9)));
+                         background: linear-gradient(180deg,transparent,rgba(0,0,0,.9))
+                     }[data-theme=dark] .post-comments .v .vcards .vcard .vcontent.expand:after {
+                          color: hsla(0,0%,100%,.5);
+                          background: #000
+                      }
 
 .page.custom-archive-template .archive-page {
     padding: 0 1rem
