@@ -140,7 +140,7 @@ function rebirth_scripts() {
 	wp_deregister_script( 'jquery' );
 	wp_register_script( 'jquery', 'https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js', array(), null, true );
 	wp_register_script( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), null, true );
-	wp_register_script( 'valine', 'https://cdn.jsdelivr.net/npm/valine@1.4.4/dist/Valine.min.js', array(), null, true );
+	wp_register_script( 'valine', 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', array(), null, true );
 	wp_register_script( 'trick', get_template_directory_uri() . '/inc/js/trick.js', array(), Rebirth_Version, true );
 	wp_register_script( 'rebirth', get_template_directory_uri() . '/inc/js/rebirth.js', array(), Rebirth_Version, true );
 
