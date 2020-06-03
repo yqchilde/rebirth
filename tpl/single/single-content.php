@@ -184,12 +184,16 @@ if ( get_next_post() != null ) {
                 <div class="col-lg px-0 px-sm-3 d-flex min-h-300 post-read-more-item">
 					<?php if ( is_single() ) : ?>
 					<?php $termId = get_the_category()[0]->term_id; ?>
-					<?php $categoryImgs = getCategoryBgImg();
-					foreach ( $categoryImgs as $k => $v ) : ?>
-					<?php if ( explode( "_", $k )[1] == $termId ) : ?>
-                    <article class="read-next-card" style="background-image: url('<?php echo $v ?>')">
-						<?php endif; ?>
-						<?php endforeach; ?>
+					<?php $categoryImgs = getCategoryBgImg(); ?>
+	                <?php if ( $categoryImgs == null ) : ?>
+                        <article class="read-next-card" style="background-image: url(<?php echo getSingleBottomImg() ?>)">
+                    <?php else: ?>
+	                    <?php foreach ( $categoryImgs as $k => $v ) : ?>
+	                    <?php if ( explode( "_", $k )[1] == $termId ) : ?>
+                            <article class="read-next-card" style="background-image: url('<?php echo $v ?>')">
+                        <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
 						<?php wp_reset_query(); ?>
 						<?php endif; ?>
                         <header class="read-next-card-header">

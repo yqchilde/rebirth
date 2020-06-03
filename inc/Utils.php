@@ -411,3 +411,8 @@ function wp_keywords() {
 
 	return "";
 }
+
+// 默认文章底部图
+function getSingleBottomImg() {
+	return "/wp-content/themes/rebirth" . rebirth_option( 'default_img' );
+}
