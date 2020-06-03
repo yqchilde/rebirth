@@ -11,33 +11,37 @@
         </div>
     </div>
     <div class="list-group list-group-flush">
-        <?php $args = array("post_type" => "nav_menu_item") ?>
-		<?php $menus = wp_get_nav_menu_items( get_nav_menu_locations()['primary'], $args );
-		foreach ( $menus as $v ) : ?>
-			<?php if ( is_home() ) : ?>
-                <a href="<?php echo $v->url ?>"
-                   class="list-group-item list-group-item-action menu-item"><?php echo $v->title ?></a>
-			<?php elseif ( is_category() ) : ?>
-                <a href="<?php echo $v->url ?>" class="list-group-item list-group-item-action menu-item <?php
-				if ( get_category( get_query_var( 'cat' ) )->term_id == $v->object_id ) {
-					echo 'active';
-				} else {
-					echo '';
-				}
-				?>"><?php echo $v->title ?></a>
-			<?php elseif ( is_page() ) : ?>
-                <a href="<?php echo $v->url ?>" class="list-group-item list-group-item-action menu-item <?php
-				if ( get_queried_object_id() == $v->object_id ) {
-					echo 'active';
-				} else {
-					echo '';
-				}
-				?>"><?php echo $v->title ?></a>
-			<?php elseif ( is_single() ) : ?>
-                <a href="<?php echo $v->url ?>"
-                   class="list-group-item list-group-item-action menu-item"><?php echo $v->title ?></a>
+		<?php $args = array( "post_type" => "nav_menu_item" ) ?>
+		<?php if ( sizeof(get_nav_menu_locations()) !== 0 ) : ?>
+			<?php $menus = wp_get_nav_menu_items( get_nav_menu_locations()['primary'], $args ); ?>
+			<?php if ( $menus != null ) : ?>
+				<?php foreach ( $menus as $v ) : ?>
+					<?php if ( is_home() ) : ?>
+                        <a href="<?php echo $v->url ?>"
+                           class="list-group-item list-group-item-action menu-item"><?php echo $v->title ?></a>
+					<?php elseif ( is_category() ) : ?>
+                        <a href="<?php echo $v->url ?>" class="list-group-item list-group-item-action menu-item <?php
+						if ( get_category( get_query_var( 'cat' ) )->term_id == $v->object_id ) {
+							echo 'active';
+						} else {
+							echo '';
+						}
+						?>"><?php echo $v->title ?></a>
+					<?php elseif ( is_page() ) : ?>
+                        <a href="<?php echo $v->url ?>" class="list-group-item list-group-item-action menu-item <?php
+						if ( get_queried_object_id() == $v->object_id ) {
+							echo 'active';
+						} else {
+							echo '';
+						}
+						?>"><?php echo $v->title ?></a>
+					<?php elseif ( is_single() ) : ?>
+                        <a href="<?php echo $v->url ?>"
+                           class="list-group-item list-group-item-action menu-item"><?php echo $v->title ?></a>
+					<?php endif; ?>
+				<?php endforeach; ?>
 			<?php endif; ?>
-		<?php endforeach; ?>
+		<?php endif; ?>
     </div>
     <div class="mt-2 text-center sidebar-footer">
         <button type="button" class="btn site-tooltip btn-footer btn-dark-mode click-dark" data-toggle="tooltip"
