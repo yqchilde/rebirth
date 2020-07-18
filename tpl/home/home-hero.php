@@ -120,10 +120,7 @@
             <!--判断是否是首页-->
 		<?php elseif ( is_home() ) : ?>
             <div class="text-center main-hero-content-title"><?php echo rebirth_option( 'author_name' ) ?></div>
-            <div class="text-center main-hero-content-description home-sentence">
-                <span id="jinrishici-sentence"></span>
-                <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-            </div>
+            <div class="text-center w-75 main-hero-content-description home-sentence"></div>
 		<?php endif; ?>
     </div>
 	<?php get_template_part('tpl/site/site', 'wave'); ?>

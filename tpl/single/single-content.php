@@ -47,8 +47,7 @@ if ( get_next_post() != null ) {
             </ol>
         </nav>
         <div class="row post-content-main">
-            <article class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9 px-0 borderbox post-content article-main">
-                <!--kg-card-begin: markdown-->
+            <article class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 px-0 borderbox post-content post-content-use-blank article-main">                <!--kg-card-begin: markdown-->
 				<?php echo $blog_content ?>
                 <!--kg-card-end: markdown-->
             </article>

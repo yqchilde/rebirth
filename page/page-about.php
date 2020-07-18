@@ -6,30 +6,30 @@
 get_header();
 
 ?>
-<section class="main-hero ">
+<section class="main-hero">
 
     <style type="text/css" id="responsive-header-img-css" class="responsive-header-img-css">
         .responsive-header-img {
-            background-image: url('https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageslim');
+            background-image: url("https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageMogr2/format/webp/interlace/1");
         }
 
         @media (max-width: 1000px) {
             .responsive-header-img {
-                background-image: url('https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageslim');
-                background-image: -webkit-image-set(url('https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageslim') 1x,
-                url('https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageslim') 2x);
-                background-image: image-set(url('https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageslim') 1x,
-                url('https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageslim') 2x);
+                background-image: url("https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageMogr2/format/webp/interlace/1");
+                background-image: -webkit-image-set(url("https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageMogr2/format/webp/interlace/1") 1x,
+                url("https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageMogr2/format/webp/interlace/1") 2x);
+                background-image: image-set(url("https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageMogr2/format/webp/interlace/1") 1x,
+                url("https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageMogr2/format/webp/interlace/1") 2x);
             }
         }
 
         @media (max-width: 600px) {
             .responsive-header-img {
-                background-image: url('https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageslim');
-                background-image: -webkit-image-set(url('https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageslim') 1x,
-                url('https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageslim') 2x);
-                background-image: image-set(url('https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageslim') 1x,
-                url('https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageslim') 2x);
+                background-image: url("https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageMogr2/format/webp/interlace/1");
+                background-image: -webkit-image-set(url("https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageMogr2/format/webp/interlace/1") 1x,
+                url("https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageMogr2/format/webp/interlace/1") 2x);
+                background-image: image-set(url("https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageMogr2/format/webp/interlace/1") 1x,
+                url("https://pic.yqqy.top/blog/20200111/40aUV3H1WDdU.jpg?imageMogr2/format/webp/interlace/1") 2x);
             }
         }
     </style>
@@ -46,10 +46,10 @@ get_header();
 <main class="main-content custom-about-template">
     <div class="container-sm">
         <div class="row">
-            <article class="post page borderbox post-content">
+            <article class="post page borderbox post-content-use-blank post-content">
                 <h3 id="-">简介</h3>
                 <p>男，98年双鱼座伪文艺程序员，吾辈愚钝身无长物，仅所依凭，唯手熟耳。</p>
-                <p>职业：准程序猿🐒。</p>
+                <p>职业：Gopher🐒。</p>
                 <p>爱好：写代码，穷游，逗女友开心。 </p>
                 <p>常用昵称：Yqchilde</p>
                 <p>Gayhub：<a href="https://github.com/yqchilde"
@@ -70,6 +70,4 @@ get_header();
         </div>
     </div>
 </main>
-
-
 <?php get_footer(); ?>
