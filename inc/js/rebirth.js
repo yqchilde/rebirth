@@ -848,13 +848,6 @@ function (t) {
 		}
 	})(),
 	function (t) {
-		var e = t.document.querySelector(".custom-links-template ul");
-		null !== e && e.classList.add("row", "mx-0"), t.document.querySelectorAll(".custom-links-template ul li").forEach((function (t) {
-			var e = t.textContent.split("|");
-			t.classList.add("col-sm-12", "col-md-6", "col-lg-4", "col-xl-4", "mb-4"), t.innerHTML = '\n      <div class="shadow px-3 links-item-wrapper">\n        <div class="links-item-wrapper-header">\n          <img src="'.concat(e[2], '" class="border links-item-wrapper-header-avatar" alt="').concat(e[0], '"/>\n        </div>\n        <div class="links-item-wrapper-content">\n          <div class="links-item-wrapper-content-name">\n            <a target="_blank" href="').concat(e[1], '">').concat(e[0], '</a>\n          </div>\n          <div class="links-item-wrapper-content-desc">').concat(e[3], "</div>\n        </div>\n      </div>\n      ")
-		}))
-	}(window),
-	function (t) {
 		!
 		function (t) {
 			var e = t.jQuery;
