@@ -53,7 +53,9 @@
 
 <?php if ( rebirth_option( 'site_baidutj_script' ) ) : ?>
     <div class="site-statistics">
-        <script type="text/javascript"><?php echo rebirth_option( 'site_baidutj_script' ) ?></script>
+        <script type="text/javascript">
+	    <?php echo htmlentities(rebirth_option( 'site_baidutj_script' ), ENT_QUOTES, "UTF-8") ?>
+	</script>
     </div>
 <?php endif; ?>
 
