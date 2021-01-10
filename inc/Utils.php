@@ -211,6 +211,8 @@ function getCategoryDescription( $info ) {
 		return get_category( get_query_var( 'cat' ) )->name;
 	} else if ( $info == "description" ) {
 		return get_category( get_query_var( 'cat' ) )->description;
+	} else {
+		return null;
 	}
 
 	return null;
@@ -377,7 +379,6 @@ function wp_description() {
 
 	//输出描述
 	return $description = mb_substr( $description, 0, 220, 'utf-8' ) . '..';
-//	echo "<meta name=\"description\" content=\"$description\" />\n";
 }
 
 // 文章关键词seo keywords优化
