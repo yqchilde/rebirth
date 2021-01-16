@@ -1,5 +1,6 @@
 # img
 *.svg
+!jetbrains.svg
 
 # jetbrains
 .idea*

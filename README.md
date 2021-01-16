@@ -39,7 +39,7 @@ Rebirth主题的WordPress版本是完全移植过来的，原主题为`JaxsonWan
 
 ### 使用前提示
 
-1. 主题没有用wordpress默认评论系统，所以没有写默认评论样式。主题用的是**[Valine.js](https://valine.js.org)** 三方评论系统，是基于`Leancloud`的，申请个人免费开发板足够使用，申请之后的**appId**，**appKey**，**serverUrls** 填入主题设置里面即可享受。
+1. 主题没有用wordpress默认评论系统，所以没有写默认评论样式。主题用的是 **[Valine.js](https://valine.js.org)** 三方评论系统，是基于`Leancloud`的，申请个人免费开发板足够使用，申请之后的**appId**，**appKey**，**serverUrls** 填入主题设置里面即可享受。
 2. 主题支持**Markdown**文章，这意味着目前不能使用wordpress自带的默认的古腾堡编辑器，这里我推荐大家使用[WP Githuber MD](https://github.com/terrylinooo/githuber-md)，这款插件，避免页面某些错位。
 
 ### 关于页面
@@ -81,6 +81,20 @@ Rebirth主题的WordPress版本是完全移植过来的，原主题为`JaxsonWan
 - `WP Githuber MD`  markdown编辑器
 - `WP Rocket`  让你的wordpress变得更快(缓存插件)
 - `百度搜索推送管理`  自动提交链接给百度站长平台
+
+## Support
+
+>jetbrains
+
+<a href="https://www.jetbrains.com/?from=yqchilde/rebirth" target="_blank">
+<img src="https://github.com/yqchilde/rebirth/blob/master/images/jetbrains.svg" width="100px" height="100px">
+</a>
+
+```
+jetbrains有一项开源赞助计划，可以通过开源项目免费申请jetbrains全家桶license
+jetbranins官方在赠送license的时候会请求提议加入他们的品牌logo推广放入到仓库中,
+不过这一切都是用户自愿的原则
+```
 
 ## License
 
